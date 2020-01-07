@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <div class="container">
+
+        <div class="title">
+            <h1> Todo List </h1>
+        </div>
+
+        <div class="inner_container">
+
+           {% for item in tasks %}
+                <form method="POST" action="/delete/{{item.id}}/">
+                    {% csrf_token %}
+                    <div class="todo_item">
+                        <a class="del" href="{% url 'delete' item.id %}"> Delete </a>
+                        <h1 class="task"> {{ item.task }} </h1>
+                        <h2 class="date"> {{ item.date }} </h2>
+                    </div>
+
+
+
+                </form>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="create_btn">
+            <a href="{% url 'create' %}"> Create New Task </a>
+        </div>
+
+    </div>
+
+
+
+
+
+{% endblock content %}

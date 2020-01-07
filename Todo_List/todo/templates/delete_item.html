@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+            <div class="title">
+                <h1> Todo List </h1>
+            </div>
+
+            <div class="inner_container">
+
+                <form method="POST", action=".">
+                    {% csrf_token %}
+
+                    <h1 class="del"> You're sure you want to delete your task, "{{ del.task }}"? </h1>
+                    <p>
+                        <input class="yes" type="submit" value="Yes"/>
+                        <a class="cancel" href="{% url 'list' %}"> Cancel </a>
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+{% endblock content %}

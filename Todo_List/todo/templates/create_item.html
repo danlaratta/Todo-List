@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+        <div class="container">
+
+            <div class="title">
+                <h1> Todo List </h1>
+            </div>
+
+            <div class="inner_container">
+
+                <form method="POST" action="{% url 'create' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit"/>
+                 </form>
+
+            </div>
+                <div class="cancel_btn">
+                    <a href="{% url 'list' %}"> Cancel </a>
+                </div>
+        </div>
+
+
+
+{% endblock content %}
